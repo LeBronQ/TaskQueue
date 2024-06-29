@@ -42,6 +42,7 @@ func NewKDtreeDeliveryTask(t *kdtree.KDTree) (*asynq.Task, error) {
 
 func HandleKDtreeDeliveryTask(ctx context.Context, t *asynq.Task) error {
 	var p KDtreeDeliveryPayload
+	fmt.Print("payload:", t.Payload())
 	if err := json.Unmarshal(t.Payload(), &p); err != nil {
 		return fmt.Errorf("json.Unmarshal failed: %v: %w", err, asynq.SkipRetry)
 	}
