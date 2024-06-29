@@ -1,4 +1,4 @@
-module tasks
+module github.com/LeBronQ/tasks
 
 go 1.22.4
 
