@@ -1,4 +1,4 @@
-module TaskQueue
+module tasks
 
 go 1.22.4
 
