@@ -45,7 +45,7 @@ func HandleKDtreeDeliveryTask(ctx context.Context, t *asynq.Task) error {
 	if err := json.Unmarshal(t.Payload(), &p); err != nil {
 		return fmt.Errorf("json.Unmarshal failed: %v: %w", err, asynq.SkipRetry)
 	}
-	fmt.Println("kdtree:", p.tree)
+	fmt.Println("kdtree:", p.Tree)
 	// Email delivery code ...
 	return nil
 }
