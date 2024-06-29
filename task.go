@@ -15,7 +15,7 @@ const (
 )
 
 type KDtreeDeliveryPayload struct {
-	tree *kdtree.KDTree
+	Tree *kdtree.KDTree
 }
 
 //----------------------------------------------
@@ -24,10 +24,11 @@ type KDtreeDeliveryPayload struct {
 //----------------------------------------------
 
 func NewKDtreeDeliveryTask(t *kdtree.KDTree) (*asynq.Task, error) {
-	payload, err := json.Marshal(KDtreeDeliveryPayload{tree: t})
+	payload, err := json.Marshal(KDtreeDeliveryPayload{Tree: t})
 	if err != nil {
 		return nil, err
 	}
+	fmt.Print(payload)
 	return asynq.NewTask(TypeKDtreeDelivery, payload), nil
 }
 
