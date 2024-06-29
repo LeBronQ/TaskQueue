@@ -9,15 +9,13 @@ import (
 	"github.com/hibiken/asynq"
 )
 
-type KDTree kdtree.KDTree
-
 // A list of task types.
 const (
 	TypeEmailDelivery = "email:deliver"
 )
 
 type KDtreeDeliveryPayload struct {
-	tree *KDTree
+	tree *kdtree.KDTree
 }
 
 //----------------------------------------------
@@ -25,7 +23,7 @@ type KDtreeDeliveryPayload struct {
 // A task consists of a type and a payload.
 //----------------------------------------------
 
-func NewKDtreeDeliveryTask(t *KDTree) (*asynq.Task, error) {
+func NewKDtreeDeliveryTask(t *kdtree.KDTree) (*asynq.Task, error) {
 	payload, err := json.Marshal(KDtreeDeliveryPayload{tree: t})
 	if err != nil {
 		return nil, err
