@@ -11,7 +11,7 @@ import (
 
 // A list of task types.
 const (
-	TypeEmailDelivery = "email:deliver"
+	TypeKDtreeDelivery = "kdtree:deliver"
 )
 
 type KDtreeDeliveryPayload struct {
@@ -28,7 +28,7 @@ func NewKDtreeDeliveryTask(t *kdtree.KDTree) (*asynq.Task, error) {
 	if err != nil {
 		return nil, err
 	}
-	return asynq.NewTask(TypeEmailDelivery, payload), nil
+	return asynq.NewTask(TypeKDtreeDelivery, payload), nil
 }
 
 //---------------------------------------------------------------
