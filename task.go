@@ -19,6 +19,7 @@ type TreeNodeData struct {
 type DeliveryPoint struct {
 	Coordinates []float64 `json:"coordinates"`
 	ID          int64     `json:"id"`
+	TaskID	    int64     `json:"taskid"`
 }
 
 type KDtreeDeliveryPayload struct {
@@ -32,7 +33,6 @@ type KDtreeDeliveryPayload struct {
 
 func NewKDtreeDeliveryTask(t []DeliveryPoint) (*asynq.Task, error) {
 	payload, err := json.Marshal(KDtreeDeliveryPayload{TreeNodes: t})
-	fmt.Print("p:", string(payload))
 	if err != nil {
 		return nil, err
 	}
