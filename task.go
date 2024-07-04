@@ -19,7 +19,6 @@ type TreeNodeData struct {
 type DeliveryPoint struct {
 	Coordinates []float64 `json:"coordinates"`
 	ID          int64     `json:"id"`
-	TaskID	    int64     `json:"taskid"`
 }
 
 type KDtreeDeliveryPayload struct {
